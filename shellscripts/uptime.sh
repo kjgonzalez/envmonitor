@@ -1,3 +1,3 @@
 #!/bin/bash
-. /home/pib/programs/envmonitor/venv/bin/activate
-python ~/programs/envmonitor/run_log.py --p $1 # required to be given by user
+. /home/pib/envmonitor/venv/bin/activate
+python ~/envmonitor/uptime.py # default is every 30 minutes
