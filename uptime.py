@@ -55,6 +55,7 @@ if(__name__ == '__main__'):
     per = int(args.period)
 
     # initial time write
+    print('update period [s]:',per)
     up = Uptime(filepath)
 
     while(True):
