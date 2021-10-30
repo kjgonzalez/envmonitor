@@ -56,7 +56,7 @@ if(__name__ == '__main__'):
 
     # initial time write
     print('update period [s]:',per)
-    up = Uptime(filepath)
+    up = Uptime()
 
     while(True):
         up.updateFile()
