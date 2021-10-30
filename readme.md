@@ -1,6 +1,7 @@
 # Environment Monitor
 Goal: collect and store sensor readings from a local environment
 
+
 ## Available Sensors
 * SHTC3: temperature / humidity over I2C
 
