@@ -33,3 +33,10 @@ RX (15) | TX (1)          | BLUE
 * add various ways to run program (which sensors to activate, what's talking to what)
 * perform rpi-teensy echo test
 * make simple request system for rpi-teensy data transfer
+
+### Credits, External Libraries
+* Snooze, https://github.com/duff2013/Snooze/
+* DHTStable, https://github.com/RobTillaart/Arduino/tree/master/libraries/DHTstable
+* 
+
+
