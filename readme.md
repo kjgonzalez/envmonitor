@@ -1,21 +1,28 @@
 # Environment Monitor
 Goal: collect and store sensor readings from a local environment
 
+## Installation
+* Clone repo
+* Ensure all relevant modules installed (note: recommended venv is "venv/")
+* Connect all wires as needed
 
-## Available Sensors
+## Sensors Used
 * SHTC3: temperature / humidity over I2C
 
-
-## fixme
-Usage:
-1. activate environment: source shtc3/bin/activate
-2. run main script
-
-
-### Goal of Teensy
+### Teensy Option
 Since the RPI can't perform any true PWM / DAC / analog actions, will handle this here. there will be a core program that then has the option of enabling / disabling various functionalities, such as reading voltage / current from a solar panel
 
-## wiring the teensy & rpi0 together: 
+## Wire Connections
+### RPI-SHTC3:
+```
+RPI0 | SHTC3
+GP_1 | 3V  BLUE
+GP_3 | SDA YELLOW
+GP_5 | SCL ORANGE
+GP_6 | GND GREEN
+```
+
+### Teensy-RPI Zero:
 The teensy and rpi need to share data, and the teensy will receive 5V/GND from the rpi as well. thus, wiring needs to look like the below. KEEP IN MIND: THE TEENSY MUST NOT BE CONNECTED TO 5V POWER WHEN PLUGGING IN WITH USB; EITHER DISCONNECT OR USE A DATA-ONLY USB
 ```
 RPI     | TEENSY          | COLOR
@@ -26,7 +33,6 @@ RX (15) | TX (1)          | BLUE
 ```
 
 ## TODO
-* add more to readme
 * add support for solar panels
 * communicate over UART with teensy
 * store teensy code here as well

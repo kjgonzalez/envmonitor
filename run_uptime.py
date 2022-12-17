@@ -1,5 +1,5 @@
 '''
-simple updater of current uptime
+Simple updater of current uptime
 
 this opens / generates a file, counts how many lines are in the file, and then keeps increasing the
     uptime for that particular line.
