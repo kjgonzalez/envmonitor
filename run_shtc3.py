@@ -6,12 +6,12 @@ import os
 import time
 import argparse
 from datetime import datetime
-try:
+if('arm' in os.uname().machine):
     import busio, board, adafruit_shtc3
     i2c = busio.I2C(board.SCL, board.SDA)
     sht = adafruit_shtc3.SHTC3(i2c)
-except:
-    print('!!!!! RPI LIB OR HARDWARE NOT FOUND, USING DUMMY LIBRARY !!!!!')
+else:
+    print('!!!!! NOT ON RPI, USING DUMMY LIBRARY !!!!!')
     import dummylib as dl
     sht = dl.DummySHTC3()
 fpath = os.path.join(os.path.dirname(__file__),'data/log_shtc3.csv') # appends to data
@@ -27,6 +27,7 @@ if(__name__=='__main__'):
     LOG = not args.nolog
     print('PERIOD:',PERIOD)
     print('LOG:',LOG)
+
     while True:
         ts = str(datetime.now()).split('.')[0]
         t,rh = sht.measurements
