@@ -9,4 +9,4 @@ class DummySHTC3:
         pass
     @property
     def measurements(self):
-        return (20+2*random(),40+2*random())
+        return (100+2*random(),2*random())

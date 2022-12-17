@@ -11,9 +11,10 @@ try:
     i2c = busio.I2C(board.SCL, board.SDA)
     sht = adafruit_shtc3.SHTC3(i2c)
 except:
-    print('!!!!! RPI LIB NOT FOUND, USING DUMMY LIBRARY !!!!!')
+    print('!!!!! RPI LIB OR HARDWARE NOT FOUND, USING DUMMY LIBRARY !!!!!')
     import dummylib as dl
     sht = dl.DummySHTC3()
+
 fpath = os.path.join(os.path.dirname(__file__),'data/log.csv') # appends to data
 
 
@@ -30,16 +31,18 @@ if(__name__=='__main__'):
     while True:
         ts = str(datetime.now()).split('.')[0]
         t,rh = sht.measurements
-        print('Time: {} | Temp (C): {:.4f} | RelH (%): {:.4f}'.format(ts,t,rh))
+        print('Time: {} | Temp (C): {:.4f} | RelH (%): {:.4f}'.format(ts,t,rh),end='')
         # print("Time    :",ts)
         #print("Temp (C):",t)
         #print("RelH (%):",rh)
         #print('-'*20)
         if(LOG):
-            print('writing...')
             with open(fpath,'a') as f:
                 f.write("{},{},{}\n".format(ts,t,rh))
                 f.close()
+            print(' | saved to log')
+        else:
+            print('')
         time.sleep(PERIOD)
     
     print('Stopping Program...')
