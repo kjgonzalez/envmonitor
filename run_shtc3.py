@@ -39,7 +39,7 @@ if(__name__=='__main__'):
             with open(fpath,'a') as f:
                 f.write("{},{},{}\n".format(ts,t,rh))
                 f.close()
-            print(' | saved to log')
+            print(' | Saved ')
         else:
             print('')
         time.sleep(PERIOD)
