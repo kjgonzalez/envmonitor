@@ -14,8 +14,7 @@ except:
     print('!!!!! RPI LIB OR HARDWARE NOT FOUND, USING DUMMY LIBRARY !!!!!')
     import dummylib as dl
     sht = dl.DummySHTC3()
-
-fpath = os.path.join(os.path.dirname(__file__),'data/log.csv') # appends to data
+fpath = os.path.join(os.path.dirname(__file__),'data/log_shtc3.csv') # appends to data
 
 
 if(__name__=='__main__'):
