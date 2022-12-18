@@ -32,12 +32,10 @@ if(__name__=='__main__'):
         ts = str(datetime.now()).split('.')[0]
         t,rh = sht.measurements
         print('Time: {} | Temp (C): {:.4f} | RelH (%): {:.4f}'.format(ts,t,rh),end='')
-        # print("Time    :",ts)
-        #print("Temp (C):",t)
-        #print("RelH (%):",rh)
-        #print('-'*20)
         if(LOG):
+            firstwrite=not os.path.exists(fpath)
             with open(fpath,'a') as f:
+                if(firstwrite): f.write('Time,Temp_C,RH_%\n')
                 f.write("{},{},{}\n".format(ts,t,rh))
                 f.close()
             print(' | Saved ')
